@@ -1,9 +1,5 @@
 import { FC, PropsWithChildren, useEffect, useState } from "react";
-import {
-  BhdContextType,
-  BhdInternalContext,
-  BhdInternalContextType,
-} from "../utils/context";
+import { BhdInternalContext, BhdInternalContextType } from "../utils/context";
 import axios from "axios";
 import { BASE_URL } from "../utils/url";
 import { BhdContentBlockWithBlueprint } from "../models/contentBlock";
@@ -27,8 +23,8 @@ const BhdContext: FC<PropsWithChildren & { options: BhdContextProps }> = ({
     }),
     getContentBlock: (id: string): Promise<BhdContentBlockWithBlueprint> =>
       context.axiosInstance
-        .get<BhdContentBlockWithBlueprint>(`/block/${id}`)
-        .then((res) => res.data),
+        .get<{ block: BhdContentBlockWithBlueprint }>(`/block/${id}`)
+        .then((res) => res.data.block),
     getBlueprintComponent: (
       id: string,
     ): BhdBlueprintLut[keyof BhdBlueprintLut] => context.blueprintLut[id],
@@ -37,11 +33,10 @@ const BhdContext: FC<PropsWithChildren & { options: BhdContextProps }> = ({
 
   useEffect(() => {
     context.axiosInstance.interceptors.request.use((config) => {
-      console.log("appending auth header");
       config.headers.Authorization = `Bearer ${context.accessToken}`;
       return config;
     });
-  }, []);
+  }, [context]);
 
   return (
     <BhdInternalContext.Provider value={context}>

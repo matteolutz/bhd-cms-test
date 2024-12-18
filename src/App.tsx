@@ -1,4 +1,3 @@
-import "./App.css";
 import BhdComponent from "./lib/components/bhd";
 
 function App() {

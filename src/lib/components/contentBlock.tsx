@@ -22,10 +22,13 @@ const BhdContentBlockComponent = forwardRef<
     return <Component ref={ref} contentBlock={contentBlock} {...rest} />;
   }
 
+  console.log(contentBlock);
+
   return (
     <p>
-      No component was registered for the blueprint id{" "}
-      <strong>{contentBlock.contentBlockBlueprintId}</strong>.
+      No component was registered for the blueprint{" "}
+      <strong>{contentBlock.contentBlockBlueprint.name}</strong> (ID:{" "}
+      {contentBlock.contentBlockBlueprintId}).
     </p>
   );
 });

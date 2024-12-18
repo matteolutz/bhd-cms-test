@@ -3,7 +3,8 @@ import { BhdContentBlockBlueprint } from "./contentBlockBlueprint";
 export type BhdContentBlock = {
   id: string;
   name: string;
-  content: Record<string, unknown>;
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  content: any;
 
   createdAt: string;
   updatedAt: string;
@@ -11,5 +12,9 @@ export type BhdContentBlock = {
   contentBlockBlueprintId: string;
 };
 
-export type BhdContentBlockWithBlueprint = BhdContentBlock &
-  Pick<BhdContentBlockBlueprint, "projectId" | "tag">;
+export type BhdContentBlockWithBlueprint = BhdContentBlock & {
+  contentBlockBlueprint: Pick<
+    BhdContentBlockBlueprint,
+    "projectId" | "tag" | "name"
+  >;
+};

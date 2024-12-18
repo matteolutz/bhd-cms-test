@@ -6,6 +6,7 @@ import { BhdBlueprintLut } from "../types";
 export type BhdContextType = {
   accessToken: string;
   blueprintLut: BhdBlueprintLut;
+  getContentBlock: (id: string) => Promise<BhdContentBlockWithBlueprint>;
 };
 
 export type BhdInternalContextType = BhdContextType & {
