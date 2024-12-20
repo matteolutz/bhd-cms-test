@@ -1,13 +1,13 @@
 import { FC, forwardRef, useEffect, useState } from "react";
 import { useBhdInternalContext } from "../utils/context";
 import { BhdContentBlockWithBlueprint } from "../models/contentBlock";
-import BhdContentBlockComponent from "./contentBlock";
+import { BhdContentBlockComponent } from "./contentBlock";
 
-type BhdComponentProps = {
+export type BhdComponentProps = {
   contentBlockId: string;
 };
 
-const BhdComponent: FC<BhdComponentProps> = forwardRef<
+export const BhdComponent: FC<BhdComponentProps> = forwardRef<
   HTMLElement,
   BhdComponentProps
 >(({ contentBlockId, ...rest }, ref) => {
@@ -30,11 +30,10 @@ const BhdComponent: FC<BhdComponentProps> = forwardRef<
       .catch((error) =>
         setContentBlock({ state: "failed", reason: "" + error }),
       );
-  }, [contentBlockId]);
+  }, [contentBlockId, context]);
 
   if (contentBlock.state === "loading") {
-    // TODO: custom loading component
-    return <div>Loading...</div>;
+    return <context.loadingComponent />;
   }
 
   if (contentBlock.state === "failed") {
@@ -50,5 +49,3 @@ const BhdComponent: FC<BhdComponentProps> = forwardRef<
     />
   );
 });
-
-export default BhdComponent;

@@ -1,8 +1,7 @@
 import { FC } from "react";
-import { BhdBlockComponentProps } from "../lib/types";
-import BhdComponent from "../lib/components/bhd";
+import { BhdContentBlockComponentProps, BhdComponent } from "../lib/index";
 
-const LeftRightEvenComponent: FC<BhdBlockComponentProps> = ({
+const LeftRightEvenComponent: FC<BhdContentBlockComponentProps> = ({
   contentBlock,
 }) => {
   return (

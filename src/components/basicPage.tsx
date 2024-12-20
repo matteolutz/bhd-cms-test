@@ -1,8 +1,9 @@
-import BhdComponent from "../lib/components/bhd";
-import { BhdBlockComponentProps } from "../lib/types";
+import { BhdComponent, BhdContentBlockComponentProps } from "../lib/index";
 import { FC } from "react";
 
-const BasicPageComponent: FC<BhdBlockComponentProps> = ({ contentBlock }) => {
+const BasicPageComponent: FC<BhdContentBlockComponentProps> = ({
+  contentBlock,
+}) => {
   return (
     <div
       style={{

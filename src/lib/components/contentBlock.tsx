@@ -2,13 +2,13 @@ import { forwardRef } from "react";
 import { BhdContentBlockWithBlueprint } from "../models/contentBlock";
 import { useBhdInternalContext } from "../utils/context";
 
-type BhdContentBlockComponentProps = {
+export type BhdContentBlockInternalComponentProps = {
   contentBlock: BhdContentBlockWithBlueprint;
 };
 
-const BhdContentBlockComponent = forwardRef<
+export const BhdContentBlockComponent = forwardRef<
   HTMLElement,
-  BhdContentBlockComponentProps
+  BhdContentBlockInternalComponentProps
 >(({ contentBlock, ...rest }, ref) => {
   const context = useBhdInternalContext();
 
@@ -17,12 +17,17 @@ const BhdContentBlockComponent = forwardRef<
   );
 
   if (Component) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
-    return <Component ref={ref} contentBlock={contentBlock} {...rest} />;
+    return (
+      <Component
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        ref={ref}
+        loadingComponent={context.loadingComponent}
+        contentBlock={contentBlock}
+        {...rest}
+      />
+    );
   }
-
-  console.log(contentBlock);
 
   return (
     <p>
@@ -32,5 +37,3 @@ const BhdContentBlockComponent = forwardRef<
     </p>
   );
 });
-
-export default BhdContentBlockComponent;

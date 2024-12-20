@@ -1,11 +1,12 @@
 import { ElementType } from "react";
-import { BhdContentBlockWithBlueprint } from "./models/contentBlock";
+import { BhdContentBlockWithBlueprint } from "./models";
 
-export type BhdBlockComponentProps = {
+export type BhdContentBlockComponentProps = {
   contentBlock: BhdContentBlockWithBlueprint;
+  loadingComponent: ElementType;
 };
 
 export type BhdBlueprintLut = Record<
   string,
-  ElementType<BhdBlockComponentProps>
+  ElementType<BhdContentBlockComponentProps>
 >;

@@ -1,7 +1,9 @@
 import { FC } from "react";
-import { BhdBlockComponentProps } from "../lib/types";
+import { BhdContentBlockComponentProps } from "../lib/index";
 
-const DummyUIComponent: FC<BhdBlockComponentProps> = ({ contentBlock }) => {
+const DummyUIComponent: FC<BhdContentBlockComponentProps> = ({
+  contentBlock,
+}) => {
   return (
     <div>
       <h1>{contentBlock.content.title}</h1>

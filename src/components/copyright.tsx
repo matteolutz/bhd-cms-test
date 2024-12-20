@@ -1,8 +1,11 @@
 import { FC, useEffect, useState } from "react";
-import { BhdBlockComponentProps } from "../lib/types";
+import { BhdContentBlockComponentProps } from "../lib/index";
 import { useBhdContext } from "../lib";
 
-const CopyrightComponent: FC<BhdBlockComponentProps> = ({ contentBlock }) => {
+const CopyrightComponent: FC<BhdContentBlockComponentProps> = ({
+  contentBlock,
+  loadingComponent,
+}) => {
   const { getContentBlock } = useBhdContext();
 
   const [copyrightInfo, setCopyrightInfo] = useState<{
@@ -16,12 +19,16 @@ const CopyrightComponent: FC<BhdBlockComponentProps> = ({ contentBlock }) => {
     );
   }, []);
 
-  return (
-    copyrightInfo && (
-      <span>
-        &copy; {copyrightInfo.copyrightYear} {copyrightInfo.copyrightText}
-      </span>
-    )
+  const LoadingComponent = loadingComponent;
+
+  return copyrightInfo ? (
+    <div>
+      &copy;{" "}
+      <span data-bhdTitle="copyrightYear">{copyrightInfo.copyrightYear}</span>{" "}
+      <span data-bhdTitle="copyrightText">{copyrightInfo.copyrightText}</span>
+    </div>
+  ) : (
+    <LoadingComponent />
   );
 };
 

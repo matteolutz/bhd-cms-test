@@ -1,5 +1,5 @@
 import { AxiosInstance } from "axios";
-import { createContext, useContext } from "react";
+import { createContext, ElementType, useContext } from "react";
 import { BhdContentBlockWithBlueprint } from "../models/contentBlock";
 import { BhdBlueprintLut } from "../types";
 
@@ -15,6 +15,8 @@ export type BhdInternalContextType = BhdContextType & {
   getBlueprintComponent: (id: string) => BhdBlueprintLut[keyof BhdBlueprintLut];
 
   getContentBlock: (id: string) => Promise<BhdContentBlockWithBlueprint>;
+
+  loadingComponent: ElementType;
 };
 
 export const BhdInternalContext = createContext<BhdInternalContextType>(
