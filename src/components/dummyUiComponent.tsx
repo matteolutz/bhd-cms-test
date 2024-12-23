@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { BhdContentBlockComponentProps } from "../lib/index";
+import { BhdContentBlockComponentProps } from "bhd-cms-react";
 
 const DummyUIComponent: FC<BhdContentBlockComponentProps> = ({
   contentBlock,

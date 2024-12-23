@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { BhdContentBlockComponentProps, BhdComponent } from "../lib/index";
+import { BhdContentBlockComponentProps, BhdComponent } from "bhd-cms-react";
 
 const LeftRightEvenComponent: FC<BhdContentBlockComponentProps> = ({
   contentBlock,

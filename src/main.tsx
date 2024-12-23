@@ -2,7 +2,7 @@ import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.tsx";
-import { BhdContext, BhdContextOptions } from "./lib/index";
+import { BhdContext, BhdContextOptions } from "bhd-cms-react";
 import BasicPageComponent from "./components/basicPage.tsx";
 import DummyUIComponent from "./components/dummyUiComponent.tsx";
 import CopyrightComponent from "./components/copyright.tsx";

@@ -1,6 +1,5 @@
 import { FC, useEffect, useState } from "react";
-import { BhdContentBlockComponentProps } from "../lib/index";
-import { useBhdContext } from "../lib";
+import { BhdContentBlockComponentProps, useBhdContext } from "bhd-cms-react";
 
 const CopyrightComponent: FC<BhdContentBlockComponentProps> = ({
   contentBlock,

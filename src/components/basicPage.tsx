@@ -1,4 +1,4 @@
-import { BhdComponent, BhdContentBlockComponentProps } from "../lib/index";
+import { BhdComponent, BhdContentBlockComponentProps } from "bhd-cms-react";
 import { FC } from "react";
 
 const BasicPageComponent: FC<BhdContentBlockComponentProps> = ({
