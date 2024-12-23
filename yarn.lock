@@ -723,10 +723,9 @@ balanced-match@^1.0.0:
   resolved "https://registry.npmjs.org/balanced-match/-/balanced-match-1.0.2.tgz"
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
-bhd-cms-react@^1.0.2:
-  version "1.0.2"
-  resolved "https://registry.yarnpkg.com/bhd-cms-react/-/bhd-cms-react-1.0.2.tgz#3bfffbd0e0458d0c1ea2dd96c851469e649dc2e2"
-  integrity sha512-OLlEYLzId6Ezf/U6yRFyGPrpKz4mIgm/4KjpxMgIITKLnemDyFqft+rccs5cjTly9prCzifzvNANzebwzqIfrg==
+"bhd-cms-react@https://github.com/matteolutz/bhd-cms-react.git":
+  version "1.0.4"
+  resolved "https://github.com/matteolutz/bhd-cms-react.git#f332aa67fa61566e7e57bbb977848e8e328fdf32"
   dependencies:
     axios "^1.7.9"
     react "^18.3.1"

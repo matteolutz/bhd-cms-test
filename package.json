@@ -10,7 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "bhd-cms-react": "^1.0.2",
+    "bhd-cms-react": "https://github.com/matteolutz/bhd-cms-react.git",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },
