@@ -3,6 +3,8 @@ import { FC } from "react";
 
 const BasicPageComponent: FC<BhdContentBlockComponentProps> = ({
   contentBlock,
+  bhdRoot,
+  bhdField,
 }) => {
   return (
     <div
@@ -12,9 +14,14 @@ const BasicPageComponent: FC<BhdContentBlockComponentProps> = ({
         width: "100vw",
         height: "100vh",
       }}
+      {...bhdRoot()}
     >
       {contentBlock.content.children.map((child: string) => (
-        <BhdComponent key={child} contentBlockId={child} />
+        <BhdComponent
+          {...bhdField("children")}
+          key={child}
+          contentBlockId={child}
+        />
       ))}
     </div>
   );

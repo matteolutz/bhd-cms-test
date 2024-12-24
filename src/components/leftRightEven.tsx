@@ -3,6 +3,8 @@ import { BhdContentBlockComponentProps, BhdComponent } from "bhd-cms-react";
 
 const LeftRightEvenComponent: FC<BhdContentBlockComponentProps> = ({
   contentBlock,
+  bhdRoot,
+  bhdField,
 }) => {
   return (
     <div
@@ -12,9 +14,16 @@ const LeftRightEvenComponent: FC<BhdContentBlockComponentProps> = ({
         gridTemplateRows: "1fr",
         gridTemplateColumns: "1fr 1fr",
       }}
+      {...bhdRoot()}
     >
-      <BhdComponent contentBlockId={contentBlock.content.left as string} />
-      <BhdComponent contentBlockId={contentBlock.content.right as string} />
+      <BhdComponent
+        {...bhdField("left")}
+        contentBlockId={contentBlock.content.left as string}
+      />
+      <BhdComponent
+        {...bhdField("right")}
+        contentBlockId={contentBlock.content.right as string}
+      />
     </div>
   );
 };

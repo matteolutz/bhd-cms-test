@@ -4,6 +4,8 @@ import { BhdContentBlockComponentProps, useBhdContext } from "bhd-cms-react";
 const CopyrightComponent: FC<BhdContentBlockComponentProps> = ({
   contentBlock,
   loadingComponent,
+  bhdField,
+  bhdRoot,
 }) => {
   const { getContentBlock } = useBhdContext();
 
@@ -21,10 +23,10 @@ const CopyrightComponent: FC<BhdContentBlockComponentProps> = ({
   const LoadingComponent = loadingComponent;
 
   return copyrightInfo ? (
-    <div>
+    <div {...bhdRoot()}>
       &copy;{" "}
-      <span data-bhdTitle="copyrightYear">{copyrightInfo.copyrightYear}</span>{" "}
-      <span data-bhdTitle="copyrightText">{copyrightInfo.copyrightText}</span>
+      <span {...bhdField("coyrightYear")}>{copyrightInfo.copyrightYear}</span>{" "}
+      <span {...bhdField("copyrightText")}>{copyrightInfo.copyrightText}</span>
     </div>
   ) : (
     <LoadingComponent />

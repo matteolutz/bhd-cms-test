@@ -9,6 +9,8 @@ import CopyrightComponent from "./components/copyright.tsx";
 import LeftRightEvenComponent from "./components/leftRightEven.tsx";
 import ImageComponent from "./components/image.tsx";
 
+import "bhd-cms-react/dist/styles.css";
+
 const options: BhdContextOptions = {
   accessToken: "e350e0f0-c37e-4bbd-aae4-48a5037296ad",
   baseUrl: "http://localhost:3000",
