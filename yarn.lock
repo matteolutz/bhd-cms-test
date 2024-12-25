@@ -724,8 +724,8 @@ balanced-match@^1.0.0:
   integrity sha512-3oSeUO0TMV67hN1AmbXsK4yaqU7tjiHlbxRDZOpH0KW9+CeX4bRAaX0Anxt0tx2MrpRpWwQaPwIlISEJhYU5Pw==
 
 "bhd-cms-react@https://github.com/matteolutz/bhd-cms-react.git":
-  version "1.0.7"
-  resolved "https://github.com/matteolutz/bhd-cms-react.git#7952ec1e1e01e6d87bb6a0d254f01b303fa30727"
+  version "1.0.8"
+  resolved "https://github.com/matteolutz/bhd-cms-react.git#97dcb98b0e7f3819f87308afa6bfb3003a23418e"
   dependencies:
     axios "^1.7.9"
     react "^18.3.1"
