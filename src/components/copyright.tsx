@@ -23,10 +23,14 @@ const CopyrightComponent: FC<BhdContentBlockComponentProps> = ({
   const LoadingComponent = loadingComponent;
 
   return copyrightInfo ? (
-    <div {...bhdRoot()}>
+    <div {...bhdRoot({})}>
       &copy;{" "}
-      <span {...bhdField("coyrightYear")}>{copyrightInfo.copyrightYear}</span>{" "}
-      <span {...bhdField("copyrightText")}>{copyrightInfo.copyrightText}</span>
+      <span {...bhdField("coyrightYear", {})}>
+        {copyrightInfo.copyrightYear}
+      </span>{" "}
+      <span {...bhdField("copyrightText", {})}>
+        {copyrightInfo.copyrightText}
+      </span>
     </div>
   ) : (
     <LoadingComponent />

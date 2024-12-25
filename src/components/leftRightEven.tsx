@@ -8,21 +8,24 @@ const LeftRightEvenComponent: FC<BhdContentBlockComponentProps> = ({
 }) => {
   return (
     <div
-      style={{
-        display: "grid",
-        width: "100%",
-        gridTemplateRows: "1fr",
-        gridTemplateColumns: "1fr 1fr",
-      }}
-      {...bhdRoot()}
+      {...bhdRoot<"div">({
+        style: {
+          display: "grid",
+          width: "100%",
+          gridTemplateRows: "1fr",
+          gridTemplateColumns: "1fr 1fr",
+        },
+      })}
     >
       <BhdComponent
-        {...bhdField("left")}
-        contentBlockId={contentBlock.content.left as string}
+        {...bhdField<typeof BhdComponent>("left", {
+          contentBlockId: contentBlock.content.left as string,
+        })}
       />
       <BhdComponent
-        {...bhdField("right")}
-        contentBlockId={contentBlock.content.right as string}
+        {...bhdField<typeof BhdComponent>("right", {
+          contentBlockId: contentBlock.content.right as string,
+        })}
       />
     </div>
   );

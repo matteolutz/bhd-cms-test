@@ -8,19 +8,21 @@ const BasicPageComponent: FC<BhdContentBlockComponentProps> = ({
 }) => {
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        width: "100vw",
-        height: "100vh",
-      }}
-      {...bhdRoot()}
+      {...bhdRoot<"div">({
+        style: {
+          display: "flex",
+          flexDirection: "column",
+          width: "100vw",
+          height: "100vh",
+        },
+      })}
     >
       {contentBlock.content.children.map((child: string) => (
         <BhdComponent
-          {...bhdField("children")}
+          {...bhdField<typeof BhdComponent>("children", {
+            contentBlockId: child,
+          })}
           key={child}
-          contentBlockId={child}
         />
       ))}
     </div>

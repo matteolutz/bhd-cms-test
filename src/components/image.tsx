@@ -9,10 +9,11 @@ const ImageComponent: FC<BhdContentBlockComponentProps> = ({
   const { getAssetUrl } = useBhdContext();
   return (
     <img
-      {...bhdRoot()}
-      {...bhdField("image")}
-      src={getAssetUrl(contentBlock.content.image)}
-      alt={contentBlock.content.alt}
+      {...bhdRoot({})}
+      {...bhdField<"img">("image", {
+        src: getAssetUrl(contentBlock.content.image),
+        alt: contentBlock.content.alt,
+      })}
     />
   );
 };
