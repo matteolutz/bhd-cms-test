@@ -1,39 +1,21 @@
-import { FC, useEffect, useState } from "react";
-import { BhdContentBlockComponentProps, useBhdContext } from "bhd-cms-react";
+import { FC } from "react";
+import { BhdContentBlockComponentProps } from "bhd-cms-react";
 
 const CopyrightComponent: FC<BhdContentBlockComponentProps> = ({
   contentBlock,
-  loadingComponent,
   bhdField,
   bhdRoot,
 }) => {
-  const { getContentBlock } = useBhdContext();
-
-  const [copyrightInfo, setCopyrightInfo] = useState<{
-    copyrightText: string;
-    copyrightYear: number;
-  } | null>(null);
-
-  useEffect(() => {
-    getContentBlock(contentBlock.content.test).then((copyrightInfoBlock) =>
-      setCopyrightInfo(copyrightInfoBlock.content),
-    );
-  }, []);
-
-  const LoadingComponent = loadingComponent;
-
-  return copyrightInfo ? (
+  return (
     <div {...bhdRoot({})}>
       &copy;{" "}
       <span {...bhdField("coyrightYear", {})}>
-        {copyrightInfo.copyrightYear}
+        {contentBlock.content.copyrightYear}
       </span>{" "}
       <span {...bhdField("copyrightText", {})}>
-        {copyrightInfo.copyrightText}
+        {contentBlock.content.copyrightText}
       </span>
     </div>
-  ) : (
-    <LoadingComponent />
   );
 };
 
